@@ -8,8 +8,10 @@ export default class PixabayService {
   }
 
   async fetchHits() {
-    const request = `/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`;
-    const response = await fetch(BASE_URL + request);
+    const response = await fetch(
+      BASE_URL +
+        `/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`,
+    );
     const newResponse = await response.json();
     return newResponse.hits;
   }
